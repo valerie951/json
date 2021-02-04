@@ -34,24 +34,21 @@ if(!isset($erreur)) //S'il n'y a pas d'erreur, on upload
      if(move_uploaded_file($_FILES['file']['tmp_name'], $dossier . $newName. $extension)) //Si la fonction renvoie TRUE, c'est que ça a fonctionné...
      {  
           
-          convertImage('images/19_37_55.jpg', 'resized/19_08_42.jpg', '800', '720', 100);
+          convertImage('images/13_50_22.jpg', 'images/new.jpg', '800', '720', 100);
 
-// $js=file_get_contents('upload.json');
-// $js=[ $newName];
-// $js=json_encode($js);
-// file_put_contents('upload.json',$js);
+
 
 
 $arr = array('origin' =>$fichier, 'nom' => $newName, 'ext' => $extension, 'taille' => $taille);
 
 $js = file_get_contents('upload.json');
-$js = json_decode($js, true);
+ $js = json_decode($js, true);
 $js[] = $arr;
 $js = json_encode($js);
 file_put_contents('upload.json' , $js);
 
-header('Location: image.php');
-exit();
+ header('Location: image.php');
+ exit();
 
      }
      else //Sinon (la fonction renvoie FALSE).
@@ -63,28 +60,6 @@ else
 {
      echo $erreur;
 }
-    
-}else{
-
-?>
-    <div class="row">
-        <div class="col-12">
-            <h2>merci de télécharger une image</h2>
-        </div>
-        <form enctype="multipart/form-data" action="" id="formulaire" method="POST">
-
-    
- 
-    <input type="hidden" name="MAX_FILE_SIZE" value="100000">
-            Fichier : <input type="file" name="file">
-            <input class="mt-3" type="submit" name="submit" value="Envoyer le fichier">
-    </div>
-    </div>
-    </form>
-    </div>
-<?php
 }
-?>
-<?php
-include 'footer.php';
-?>
+    ?>
+    

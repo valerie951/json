@@ -17,7 +17,11 @@ $images = json_decode($images, true) ;
 for($i=0; $i<count($images); $i++):
 ?>
 <div class="content">
-<b><?php echo $images[$i]['file']; ?></b>
+<p><?php echo $images[$i]['nom']; ?><img src="../view/images/13_50_22.jpg"><br>
+<img src="../view/images/new.jpg">
+</p>
+
+
 </div>
 <?php endfor; ?>
 </div>
